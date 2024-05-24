@@ -1,3 +1,5 @@
+**_Note:_** Check **README.md** in directory `/src` for quickest setup.
+
 <h1 align="center"> Fast FastAPI boilerplate</h1>
 <p align="center" markdown=1>
   <i>Yet another template to speed your FastAPI development up.</i>

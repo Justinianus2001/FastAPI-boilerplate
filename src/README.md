@@ -1,0 +1,79 @@
+# FastAPI boilerplate
+
+## **I. Setup**
+
+Clone project
+
+```bash
+git clone https://github.com/Justinianus2001/FastAPI-boilerplate.git
+```
+
+Create file .env in /src
+
+```bash
+# ------------- app settings -------------
+APP_NAME="Hello FastAPI"
+APP_DESCRIPTION="Hello description"
+APP_VERSION="0.1"
+CONTACT_NAME="Justinianus"
+CONTACT_EMAIL="lengochoang681@gmail.com"
+LICENSE_NAME="MIT"
+# ------------- database -------------
+POSTGRES_USER="postgres"
+POSTGRES_PASSWORD="password"
+POSTGRES_SERVER="db" # default "localhost", if using docker compose you should use "db"
+POSTGRES_PORT=5432 # default "5432", if using docker compose you should use "5432"
+POSTGRES_DB="hello_fastapi"
+# ------------- pgadmin -------------
+PGADMIN_DEFAULT_EMAIL="lengochoang681@gmail.com"
+PGADMIN_DEFAULT_PASSWORD="password"
+PGADMIN_LISTEN_PORT=80
+# ------------- crypt -------------
+SECRET_KEY=5a7f53e1afb3643c4542f83f8d8c365863048a345240ae316b0724da443bbfc9 # result of openssl rand -hex 32
+ALGORITHM=HS256 # pick an algorithm, default HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=30 # minutes until token expires, default 30
+REFRESH_TOKEN_EXPIRE_DAYS=7 # days until token expires, default 7
+# ------------- admin -------------
+ADMIN_NAME="justinianus"
+ADMIN_EMAIL="lengochoang681@gmail.com"
+ADMIN_USERNAME="justinianus"
+ADMIN_PASSWORD="password"
+# ------------- redis cache-------------
+REDIS_CACHE_HOST="redis" # default "localhost", if using docker compose you should use "redis"
+REDIS_CACHE_PORT=6379 # default "6379", if using docker compose you should use "6379"
+# ------------- redis client-side cache -------------
+CLIENT_CACHE_MAX_AGE=30 # default "30"
+# ------------- redis queue -------------
+REDIS_QUEUE_HOST="redis" # default "localhost", if using docker compose you should use "redis"
+REDIS_QUEUE_PORT=6379 # default "6379", if using docker compose you should use "6379"
+# ------------- first tier -------------
+TIER_NAME="free"
+# ------------- redis rate limit -------------
+REDIS_RATE_LIMIT_HOST="redis"   # default="localhost", if using docker compose you should use "redis"
+REDIS_RATE_LIMIT_PORT=6379          # default=6379, if using docker compose you should use "6379"
+# ------------- default rate limit settings -------------
+DEFAULT_RATE_LIMIT_LIMIT=10         # default=10
+DEFAULT_RATE_LIMIT_PERIOD=3600      # default=3600
+# ------------- test -------------
+TEST_NAME="Tester User"
+TEST_EMAIL="test@tester.com"
+TEST_USERNAME="testeruser"
+TEST_PASSWORD="Str1ng$t"
+# ------------- environment -------------
+ENVIRONMENT="local"
+```
+
+**Note:**
+
+- Uncomment first superuser section in docker-compose.yml to create first superuser before run docker later with username, password get from ADMIN_USERNAME, ADMIN_PASSWORD defined in .env
+- Uncomment pgadmin section & pgadmin volume in docker-compose.yml to use pgadmin for DB management. To user pgAdmin use link: [http://127.0.0.1:5050](http://127.0.0.1:5050/login?next=%2Fbrowser%2F)
+
+![Untitled](https://github.com/igorbenav/docs-images/blob/main/289698727-e15693b6-fae9-4ec6-a597-e70ab6f44133-3.png?raw=true)
+
+Start docker
+
+```bash
+docker compose up
+```
+
+API docs link: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
